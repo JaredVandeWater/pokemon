@@ -7,23 +7,45 @@ import { pokemonApiService } from "../Services/PokemonApiService.js";
 function _draw() {
     let apiPokemon = ProxyState.apiPokemon;
     let template = ''
-    apiPokemon.forEach(v => template += v.Template)
-    document.getElementById("allPokemonHTML").innerHTML =
-        `
-  <li>${apiPokemon}</li>
-`
+    apiPokemon.forEach(p => template += `<li class= "action hover-action" onclick="app.pokeApiController.showPokemon('${p.name}')">${p.name.toUpperCase()}</li>`)
+    document.getElementById("allPokemonHTML").innerHTML = template
 
 }
 
+function _drawCurrent() {
+    document.getElementById("currentPokemonHTML").innerHTML = ProxyState.currentPokemon ? ProxyState.currentPokemon.Template : ''
+}
+
 //Public
-export default class ValuesController {
+export default class PokemonApiController {
     constructor() {
-        ProxyState.on("values", _draw);
-        _draw()
+        ProxyState.on("apiPokemon", _draw);
+        ProxyState.on("currentPokemon", _drawCurrent);
+
+
+        this.addAllPokemon()
+
     }
 
-    addAllPokemon() {
-        pokemonApiService.addAllPokemon()
+    async addAllPokemon() {
+        try {
+            await pokemonApiService.addAllPokemon()
+
+        } catch (error) {
+            console.log(error);
+
+        }
+    }
+
+    async showPokemon(name) {
+        try {
+            await pokemonApiService.showPokemon(name)
+
+        } catch (error) {
+            console.log(error);
+
+        }
+
     }
 
 }

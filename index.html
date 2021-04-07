@@ -24,7 +24,7 @@
         <div class="row p-5">
             <div class="col-6">
                 <div class="row flex-column">
-                    <div class="col bg-primary">
+                    <div class="col bg-primary p-3">
                         <h2 class="text-center">All Pokemon</h2>
                         <div class="row">
                             <ul id="allPokemonHTML">
@@ -32,15 +32,18 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col bg-danger">
+                    <div class="col bg-danger p-3">
                         <h2 class="text-center">My Pokemon</h2>
-                        <div id="myPokemonHTML" class="row"></div>
+                        <div class="row">
+                            <ul id="myPokemonHTML">
+                                <li>test</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-6 bg-info">
-                <h2 class="text-center">Current Pokemon</h2>
-                <div id="currentPokemonHTML" class="row"></div>
+            <div class="col-6 bg-info p-3" id="currentPokemonHTML">
+
             </div>
         </div>
 

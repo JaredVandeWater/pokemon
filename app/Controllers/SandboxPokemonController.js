@@ -17,7 +17,7 @@ function _draw() {
 //Public
 export default class ValuesController {
     constructor() {
-        ProxyState.on("values", _draw);
+        ProxyState.on("myPokemon", _draw);
         _draw()
     }
 
