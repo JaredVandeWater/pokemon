@@ -6,11 +6,9 @@ import { sandboxPokemonService } from "../Services/SandboxPokemonService.js";
 function _draw() {
     let myPokemon = ProxyState.myPokemon;
     let template = ''
-    myPokemon.forEach(v => template += v.Template)
-    document.getElementById("myPokemonHTML").innerHTML =
-        `
-  <li>${myPokemon}</li>
-`
+    myPokemon.forEach(p => template += `<li class= "action hover-action" onclick="app.pokeApiController.showPokemon('${p.name}')">${p.name.toUpperCase()}</li>`)
+    document.getElementById("myPokemonHTML").innerHTML = template
+
 
 }
 

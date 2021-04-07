@@ -1,11 +1,10 @@
 export default class SinglePokemon {
-    constructor({ name, weight, height, img, sprites, types }) {
+    constructor({ name, weight, height, img, sprites, types, id }) {
         this.name = name
         this.weight = weight
         this.height = height
         this.img = img || sprites.front_default
         this.types = types
-
     }
 
     get Template() {
@@ -26,7 +25,7 @@ export default class SinglePokemon {
             </div>
         </div>
         <div class="row">
-        <button type="button" class="mx-auto mt-5 btn btn-primary">Catch</button>
+        <button type="button" onclick="app.sandboxPokemonController.addMyPokemon()" class="mx-auto mt-5 btn btn-primary">Catch</button>
         </div>
             
             
