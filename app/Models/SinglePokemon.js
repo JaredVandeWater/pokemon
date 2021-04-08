@@ -1,10 +1,13 @@
 export default class SinglePokemon {
-    constructor({ name, weight, height, img, sprites, types, id }) {
+    constructor({ name, weight, height, img, sprites, types, id }, isMine = false) {
         this.name = name
         this.weight = weight
         this.height = height
         this.img = img || sprites.front_default
         this.types = types
+        this.isMine = isMine
+        this.id = id
+
     }
 
     get Template() {
@@ -24,13 +27,18 @@ export default class SinglePokemon {
                 <h4>Type - ${this.sortType()}</h4>
             </div>
         </div>
-        <div class="row">
-        <button type="button" onclick="app.sandboxPokemonController.addMyPokemon()" class="mx-auto mt-5 btn btn-primary">Catch</button>
+        <div class="row">${this.Button}
         </div>
-            
-            
         `
     }
+
+    get Button() {
+        if (this.isMine) {
+            return `'<button type="button" onclick="app.sandboxPokemonController.removeMyPokemon('${this.id}')" class="mx-auto mt-5 btn btn-danger">Release</button>'`
+
+        } else return '<button type="button" onclick="app.sandboxPokemonController.addMyPokemon()" class="mx-auto mt-5 btn btn-primary">Catch</button>'
+    }
+
 
     sortType() {
         let template = ""
