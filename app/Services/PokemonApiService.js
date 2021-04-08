@@ -10,7 +10,7 @@ class PokemonApiService {
     }
 
     async addAllPokemon() {
-        let response = await pokemonApi.get('')
+        let response = await pokemonApi.get('?offset=0&limit=151')
         ProxyState.apiPokemon = response.data.results
 
     }

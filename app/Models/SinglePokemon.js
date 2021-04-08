@@ -3,7 +3,7 @@ export default class SinglePokemon {
         this.name = name
         this.weight = weight
         this.height = height
-        this.img = img || sprites.front_default
+        this.img = img || sprites.other.dream_world.front_default
         this.types = types
         this.isMine = isMine
         this.id = id
